@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hey brother ki obsta</h1>
+    {% if age >= 26 %}
+    <h3>Biyer boyos hoi gase biya koren mia</h3>
+    {% elif age >= 10 and age <= 26 %}
+    <h3>Aro boro how mia </h3>
+    {% elif age > 10 %}
+    <h3>Piter khaw jaw</h3>
+    {% else %}
+    <h3>boyos base hoi gase tomer hove na</h3> 
+    {% endif %}
+    <h1> Themplate filtering </h1>
+    <h4>Names length</h4>
+    {% for data  in details %}
+    
+    {{ data.name | length }} <br>
+    {% endfor %}
+    <h4>Add filter</h4>
+    {{age | add:"2"}}
+    <h4>More Filter</h4>
+    {{ 'i" am " a good boy' | addslashes }}
+    <h4> value | capfirst </h4>
+    {{ "niloy" | capfirst }} <br>
+     <h1>{{ details.0.name | center:"50" }}"</h1>
+    
+     <h4>{{ details.1.name | cut:" " }}</h4>
+     <h4>{{lst | join:"-"}}</h4>
+     <h4>Time</h4>
+     <h1>{{ time | date:"D d M Y" }}</h1>
+     {{val | default:"Nothing"}}
+     <h1>Sort</h1>
+    {{details | dictsort:"name"}} <br>
+    {{ details.0.age | divisibleby:"4" }}
+    {{ details.1.age | divisibleby:"5" }}
+    {{ details.2.age | divisibleby:"2" }}
+    {{ "sing ' &lt > a song "  | escape }}
+    {{"name" | cut:"a"}}
+    {{file_formate | filesizeformat}} <br>
+    {{lst | first }} <br>
+    {{lst | last}} <br>
+    {{ details.0 | linenumbers }} <br>
+    {{lst | random}} <br>
+    {{lst.0 | make_list}}
+    {{ lst | slice:"2" }}
+    <br>
+    {{"namin" | slice:"2"}} <br>
+    {{ time | time:"H:i:s" }} <br>
+    {% comment %} {{ 1 June 2006 | timesince:8}} {% endcomment %}
+</body>
+</html>
